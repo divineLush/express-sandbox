@@ -4,5 +4,18 @@
     </head>
     <body>
         <h1>Person: <%= id %></h1>
+        <h2>Querystring Value: <%= queryString  %></h2>
+        <form action="/person" method="POST">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+            <button type="submit">Submit</button>
+        </form>
     </body>
+    <script>
+        var body = JSON.stringify({ firstName: 'John', lastName: 'Doe' });
+        var headers = { 'Content-Type': 'application/json' };
+        fetch('/personjson', { method: 'POST', headers, body });
+    </script>
 </html>
